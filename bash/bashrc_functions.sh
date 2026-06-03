@@ -1,4 +1,7 @@
-. ~/k8s_functions.sh
+#!/bin/bash
+
+. "$HOME/k8s_functions.sh"
+. "$HOME/aws_functions.sh"
 
 ### Python venv functions
 function venv {
@@ -19,3 +22,5 @@ function newVenv {
     fi
 }
 ### end Python venv functions
+
+. "$HOME/mktx_bashrc_functions.sh"
