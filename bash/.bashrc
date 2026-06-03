@@ -121,8 +121,7 @@ export SSH_AUTH_SOCK
 #add ssh-agent
 eval "$(ssh-agent)"
 # add keys
-# ssh-add ~/.ssh/keyfile 2>/dev/null
-
+# ssh-add ~/.ssh/... 2>/dev/null
 
 . "$HOME/.local/bin/env"
 
@@ -137,7 +136,9 @@ export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PATH:$PYENV_ROOT/bin"
 # end python junk
 
+
 . "$HOME/bashrc_functions.sh"
+. "$HOME/mktx_bashrc.sh"
 
 ### linuxbrew setup
 export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
