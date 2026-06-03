@@ -22,5 +22,3 @@ function newVenv {
     fi
 }
 ### end Python venv functions
-
-. "$HOME/mktx_bashrc_functions.sh"
