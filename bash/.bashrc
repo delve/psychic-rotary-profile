@@ -56,8 +56,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source ~/kube-ps1.sh
+KUBE_PS1_HIDE_IF_NOCONTEXT=true
+
 if [ "$color_prompt" = yes ]; then
+    # if i care about who i'm loggeed in as...:
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #otherwise:
+    PS1='${debian_chroot:+($debian_chroot)}$(kube_ps1):\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

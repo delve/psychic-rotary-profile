@@ -58,13 +58,20 @@ function rebuildKubeconfig {
     kubectl config get-contexts
 }
 
+
 function kns {
-    local ns="${1:?Usage: kns <namespace>}"
+    if [[ $# -eq 0 ]]; then
+        echo $(kubectl config view --minify -o jsonpath='{..namespace]'})
+        return
+    fi
     kubectl config set-context --current --namespace="$ns"
 }
 
 function kctx {
-    local ctx="${1:?Usage: kctx <context>}"
+    if [[ $# -eq 0 ]]; then
+        kubectl config current-context
+        return
+    fi
     kubectl config use-context "$ctx"
 }
 
